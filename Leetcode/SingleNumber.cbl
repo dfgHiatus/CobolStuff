@@ -1,0 +1,22 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       DATA DIVISION.
+       FILE SECTION.
+       WORKING-STORAGE SECTION.
+
+           01 SUMMATION PIC 9(02) VALUE 0.
+           01 COUNTER PIC 9(02) VALUE 0.
+           01 TABLESIZE PIC 9(02) VALUE 6.
+           01 F_VALUE VALUE
+               "12345".
+                   05 F_ARR OCCURS 5 TIMES PIC A(1).
+
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           *> B-XOR isn't supported??
+           PERFORM VARYING COUNTER FROM 1 BY 1 UNTIL COUNTER = TABLESIZE
+               MOVE B-XOR(SUMMATION F_ARR(COUNTER)) TO SUMMATION
+           END-PERFORM.
+           DISPLAY "Odd one out: " SUMMATION;
+           STOP RUN.
+       END PROGRAM YOUR-PROGRAM-NAME.
